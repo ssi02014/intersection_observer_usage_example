@@ -5,7 +5,7 @@ import { requestAxios } from "../../utils/axios";
 
 const InfiniteScrollTemplate = () => {
   const [images, setImages] = useState<ImageResponse[]>([]);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   const getImages = useCallback(async () => {
     const response = await requestAxios({
@@ -16,17 +16,22 @@ const InfiniteScrollTemplate = () => {
         limit: 10,
       },
     });
+
     setImages([...images, ...response]);
   }, [images, page]);
+
+  const getNextPage = useCallback(() => {
+    setPage(page + 1);
+  }, [page]);
 
   useEffect(() => {
     getImages();
   }, [page]);
 
   return (
-    <div>
-      <ImageList images={images} />
-    </div>
+    <>
+      <ImageList images={images} getNextPage={getNextPage} />
+    </>
   );
 };
 
