@@ -4,7 +4,6 @@ import NoImage from "../../assets/images/noImg.png";
 interface props {
   src: string;
   alt: string;
-  loading?: string;
   width?: string;
   height?: string;
 }

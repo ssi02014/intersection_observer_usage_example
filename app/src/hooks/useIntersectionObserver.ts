@@ -13,7 +13,6 @@ const useIntersectionObserver: UseIntersectionObserver = (
 
   const onIntersect = useCallback(
     ([entry]: IntersectionObserverEntry[]) => {
-      console.log(entry);
       if (entry.isIntersecting) {
         action();
       }
@@ -21,7 +20,7 @@ const useIntersectionObserver: UseIntersectionObserver = (
     [action]
   );
 
-  const lastElementRef = useCallback(
+  const observerElementRef = useCallback(
     (node: HTMLElement) => {
       if (target.current) {
         target.current.disconnect();
@@ -35,7 +34,7 @@ const useIntersectionObserver: UseIntersectionObserver = (
     [onIntersect, threshold]
   );
 
-  return [lastElementRef];
+  return [observerElementRef];
 };
 
 export default useIntersectionObserver;

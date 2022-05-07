@@ -9,7 +9,7 @@ interface Props {
 const ImageItem = forwardRef(({ item }: Props, ref: ForwardedRef<any>) => {
   return (
     <ImageItemWrapper ref={ref}>
-      <Image src={item.download_url} alt="이미지" width="300px" />
+      <Image src={item.download_url} alt="이미지" width="100%" />
       <p>{item.author}</p>
     </ImageItemWrapper>
   );

@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback } from "react";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 import { ImageResponse } from "../../interfaces/image";
 import ImageItem from "../molecules/ImageItem";
@@ -9,10 +9,9 @@ interface Props {
 }
 
 const ImageList = ({ images, getNextPage }: Props) => {
-  const [observer] = useIntersectionObserver(getNextPage);
-  const lastElementRef = useMemo(() => observer, [images]);
+  const [observerElementRef] = useIntersectionObserver(getNextPage);
 
-  const isLastElement = useCallback(
+  const isObserverElement = useCallback(
     (idx: number) => {
       return images.length > 8 && images.length - 2 === idx;
     },
@@ -25,7 +24,7 @@ const ImageList = ({ images, getNextPage }: Props) => {
           <ImageItem
             key={item.id}
             item={item}
-            ref={isLastElement(idx) ? lastElementRef : null}
+            ref={isObserverElement(idx) ? observerElementRef : null}
           />
         ))}
     </>
