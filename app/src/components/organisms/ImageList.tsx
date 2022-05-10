@@ -9,7 +9,7 @@ interface Props {
 }
 
 const ImageList = ({ images, getNextPage }: Props) => {
-  const [observerElementRef] = useIntersectionObserver(getNextPage);
+  const observerElementRef = useIntersectionObserver(getNextPage);
 
   const isObserverElement = useCallback(
     (idx: number) => {

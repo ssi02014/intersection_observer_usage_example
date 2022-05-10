@@ -3,7 +3,7 @@ import { MutableRefObject, useCallback, useRef } from "react";
 type UseIntersectionObserver = (
   action: any,
   threshold?: number
-) => [(node: HTMLElement) => void];
+) => (node: HTMLElement) => void;
 
 const useIntersectionObserver: UseIntersectionObserver = (
   action,
@@ -22,6 +22,7 @@ const useIntersectionObserver: UseIntersectionObserver = (
 
   const observerElementRef = useCallback(
     (node: HTMLElement) => {
+      // ref 초기화
       if (target.current) {
         target.current.disconnect();
       }
@@ -34,7 +35,7 @@ const useIntersectionObserver: UseIntersectionObserver = (
     [onIntersect, threshold]
   );
 
-  return [observerElementRef];
+  return observerElementRef;
 };
 
 export default useIntersectionObserver;
