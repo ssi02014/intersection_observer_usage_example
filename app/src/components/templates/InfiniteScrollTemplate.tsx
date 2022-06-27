@@ -43,7 +43,7 @@ const InfiniteScrollTemplate = () => {
 
 const Banner = styled.section`
   width: 100%;
-  padding: 300px 0;
+  padding: 500px 0;
   display: flex;
   justify-content: center;
   align-items: center;

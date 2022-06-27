@@ -4,18 +4,17 @@
 
 <br />
 
-## 활용 예제
+## ✅ 활용 예제
 
 1. 이미지 Lazy Loading
 2. 무한 스크롤
-
-계속 추가할 예정...
 
 <br />
 
 ## ✅ 개념 정리 참고
 
 - [Intersection Observer 개념 정리](https://blog.naver.com/ssi02014/222718621102)
+- [이미지 Lazy Loading](https://blog.naver.com/ssi02014/222789903777)
 
 <br />
 
